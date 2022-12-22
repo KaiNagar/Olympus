@@ -3,7 +3,7 @@ import logo from '../assets/imgs/Olympus.png'
 
 export const AppHeader = () => {
   return (
-    <section className='app-header-container'>
+    <section id='header' className='app-header-container'>
       <div className='app-header container flex space-between align-center'>
         <div className='nav-bar flex align-center'>
           <div className='tab'>

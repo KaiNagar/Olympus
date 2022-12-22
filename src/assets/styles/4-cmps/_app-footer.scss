@@ -1,0 +1,16 @@
+.app-footer-container {
+  background-color: $clr-mBlue;
+
+  .app-footer {
+    .nav-link {
+      color: $clr-black;
+      font-weight: bold;
+      margin: 0 0.2rem;
+      background-color: transparent;
+      transition: color .3s;
+      &:hover{
+        color: $clr-mYellow;
+      }
+    }
+  }
+}
