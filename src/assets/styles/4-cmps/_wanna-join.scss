@@ -1,0 +1,34 @@
+.wanna-join{
+    background-color: $clr-mGreen;
+    width: 100%;
+    text-align: center;
+    padding: 1rem;
+
+
+    .wanna-join-title{
+        font-size: rem(32px);
+        font-weight: bold;
+        margin: 0;
+
+    }
+    .wanna-join-subtitle{
+        font-size: rem(26px);
+        font-weight: 500;
+        margin: 1rem;
+
+    }
+    .wanna-join-btn{
+        background-color: $clr-black;
+        padding: rem(13px) rem(20px);
+        border-radius: 2rem;
+        color: white;
+        font-weight: bold;
+        font-size: rem(20px);
+        align-self: center;
+        margin: 0;
+        transition: transform .4s;
+        &:hover{
+            transform: scale(0.9);
+        }
+    }
+}
