@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom'
-import logo from '../assets/imgs/Olympus.jpeg'
+import logo from '../assets/imgs/Olympus.png'
 
 export const AppHeader = () => {
   return (

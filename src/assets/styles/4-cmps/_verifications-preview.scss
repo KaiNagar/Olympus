@@ -1,0 +1,19 @@
+.verifications-preview{
+    .ver-icon{
+        background-color: $clr-mBlue;
+        padding: 1.5rem;
+        border-radius: 50%;
+        margin: 0.6rem;
+        img{
+            width: rem(80px);
+        }
+    }
+    .ver-title{
+        margin: 0;
+        padding: 0;
+        max-width: rem(200px);
+        margin: auto;
+        text-align: center;
+        font-weight: 600;
+    }
+}
