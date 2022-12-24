@@ -21,6 +21,11 @@ export const AppHeader = () => {
               הצטרף כשכיר
             </NavLink>
           </div>
+          <div className='tab'>
+            <NavLink className='nav-link' to={'/join-form'}>
+              הצטרפות
+            </NavLink>
+          </div>
         </div>
         <img className='logo-img' src={logo} alt='Olympus Logo' />
       </div>

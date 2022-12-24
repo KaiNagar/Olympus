@@ -1,0 +1,34 @@
+.join-form {
+//   background-color: green;
+
+  .form-data {
+    // background-color: yellow;
+    border: 2px solid $clr-grey;
+    border-radius: rem(4px);
+    box-shadow: -1px 1px 6px rgb(0 0 0 / 10%);
+    max-width: 450px;
+    width: 100%;
+    padding: 0.8rem;
+    text-align: center;
+
+    .personal-info {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      row-gap: 0.6rem;
+      column-gap: 0.4rem;
+    }
+    .location-info{
+        row-gap: 0.6rem;
+    }
+  }
+  input{
+    width: 100%;
+    padding: 0.8rem;
+    border-radius: rem(4px);
+    border: 2px solid $clr-grey;
+    &:focus{
+        border: none;
+        outline: 2px solid $clr-mBlue;
+    }
+  }
+}

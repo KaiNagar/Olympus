@@ -60,6 +60,14 @@
 .m10 { margin: 10px; }
 .m20 { margin: 20px; }
 
+//dividers
+.divider{
+  height: 1px;
+  width: 100%;
+  margin:  1rem 0;
+  background-color: $clr-grey;
+}
+
 // Normalize Background
 .normBackground {
   background-repeat: no-repeat;

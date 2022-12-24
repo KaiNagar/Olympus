@@ -5,6 +5,7 @@ import { JoinInfo } from './views/JoinInfo'
 import { AppHeader } from './cmps/AppHeader'
 import './assets/styles/style.scss'
 import { AppFooter } from './cmps/AppFooter'
+import { JoinForm } from './views/JoinForm'
 
 export function App() {
   return (
@@ -16,6 +17,7 @@ export function App() {
             <Route path='/' element={<Home />} />
             <Route path='/login' element={<Login />} />
             <Route path='/join-info' element={<JoinInfo />} />
+            <Route path='/join-form' element={<JoinForm />} />
           </Routes>
         </div>
         <AppFooter />
