@@ -1,67 +1,95 @@
 import { useState } from 'react'
+import { useForm } from 'react-hook-form'
+import { FieldPreview } from '../cmps/FieldPrivew'
 
 export const JoinForm = () => {
   const [formData, setFormData] = useState()
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm()
+  const onSubmitForm = (data) => {
+    console.log(data)
+  }
 
-  const onSubmitForm = (ev) => {
-    ev.preventDefault()
-    console.log('hey')
+  const fieldsData = {
+    personal: [
+      {
+        inputName: 'username',
+        placeHolder: 'שם פרטי *',
+        err: 'שם פרטי הוא שדה חובה',
+      },
+      {
+        inputName: 'lastname',
+        placeHolder: 'שם משפחה *',
+        err: 'שם משפחה הוא שדה חובה',
+      },
+      {
+        inputName: 'phoneNumber',
+        placeHolder: 'מספר טלפון *',
+        err: 'מספר טלפון הוא שדה חובה',
+      },
+      {
+        inputName: 'email',
+        placeHolder: 'דוא"ל *',
+        err: 'אימייל הוא שדה חובה',
+        pattern:"/^(([^<>()[\\]\\.,;:\\s@\\']+(\\.[^<>()[\\]\\.,;:\\s@\\']+)*)|(\\'.+\\'))@(([^<>()[\\]\\.,;:\\s@\\']+\\.)+[^<>()[\\]\\.,;:\\s@\\']{2,})$/i"
+      },
+    ],
+    location: [
+      {
+        inputName: 'age',
+        placeHolder: 'גיל *',
+        err: 'גיל הוא שדה חובה',
+        validation: { min: 18, max: 99 },
+      },
+      {
+        inputName: 'city',
+        placeHolder: 'עיר מגורים *',
+        err: 'עיר מגורים הוא שדה חובה',
+      },
+      {
+        inputName: 'transport',
+        placeHolder: 'כלי תחבורה *',
+        err: 'כלי תחבורה הוא שדה חובה',
+      },
+      {
+        inputName: 'workType',
+        placeHolder: 'סוג עוסק *',
+        err: 'סוג עוסק הוא שדה חובה',
+      },
+    ],
   }
 
   return (
     <section className='join-form flex justify-center'>
-      <form className='form-data flex column' onSubmit={onSubmitForm}>
+      <form
+        className='form-data flex column'
+        onSubmit={handleSubmit(onSubmitForm)}
+      >
         <div className='headers'>
           <h1>הצטרפות לקהילת השליחים של אולימפוס</h1>
           <h3>שדות המסומנים ב-* הינם שדות חובה</h3>
         </div>
+
         <div className='personal-info'>
-          <div className='username-container input-container'>
-            <input
-              type='text'
-              required
-              name='usenrame'
-              placeholder='שם פרטי *'
-            />
-          </div>
-          <div className='lastname-container input-container'>
-            <input
-              type='text'
-              required
-              name='lastname'
-              placeholder='שם משפחה *'
-            />
-          </div>
-          <div className='phone-number-container input-container'>
-            <span className='phone-icon'></span>
-            <input
-              type='text'
-              required
-              name='phoneNumber'
-              placeholder='מספר טלפון *'
-            />
-          </div>
-          <div className='mail-container input-container'>
-            <span className='mail-icon'></span>
-            <input type='text' required name='email' placeholder='דוא"ל *' />
-          </div>
+          {fieldsData.personal.map((field) => (
+            <FieldPreview key={field.inputName} field={field} register={register} errors={errors} />
+          ))}
         </div>
-        <div className="divider"></div>
-        <div className="location-info flex column">
-            <div className="age-continer">
-                <input type="text" required name='age' placeholder='גיל *' />
-            </div>
-            <div className="city-continer">
-                <input type="text" required name='city' placeholder='עיר מגורים *' />
-            </div>
-            <div className="transport-continer">
-                <input type="text" required name='transport' placeholder='סוג כלי תחבורה *' />
-            </div>
-            <div className="work-type-continer">
-                <input type="text" required name='workType' placeholder='סוג עוסק *' />
-            </div>
+
+        <div className='divider'></div>
+
+        <div className='location-info flex column'>
+          {fieldsData.location.map((field) => (
+            <FieldPreview key={field.inputName} field={field} register={register} errors={errors} />
+          ))}
+          
         </div>
-        <button>שלח פרטים</button>
+
+        <input type='submit' />
       </form>
     </section>
   )

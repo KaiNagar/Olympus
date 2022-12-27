@@ -21,14 +21,5 @@
         row-gap: 0.6rem;
     }
   }
-  input{
-    width: 100%;
-    padding: 0.8rem;
-    border-radius: rem(4px);
-    border: 2px solid $clr-grey;
-    &:focus{
-        border: none;
-        outline: 2px solid $clr-mBlue;
-    }
-  }
+  
 }

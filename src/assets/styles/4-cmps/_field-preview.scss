@@ -1,0 +1,22 @@
+.field-preview{
+    text-align: right;
+    input{
+        width: 100%;
+        padding: 0.8rem;
+        border-radius: rem(4px);
+        border: 2px solid $clr-grey;
+        &:focus{
+            border: none;
+            outline: 2px solid $clr-mBlue;
+        }
+      }
+
+      .form-error{
+        color: red;
+        font-size: rem(12px);
+        margin-right: rem(5px);
+        position: relative;
+        bottom: rem(2px);
+
+      }
+}
