@@ -1,9 +1,7 @@
-import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { FieldPreview } from '../cmps/FieldPrivew'
 
 export const JoinForm = () => {
-  const [formData, setFormData] = useState()
   const {
     register,
     handleSubmit,
@@ -11,7 +9,32 @@ export const JoinForm = () => {
     formState: { errors },
   } = useForm()
   const onSubmitForm = (data) => {
-    console.log(data)
+    const user = {
+      ...data,
+      phoneNumber: data.phoneNumber.replace(/[^\w\s]/gi, '').replace(/ /g, ''),
+    }
+    console.log(user);
+    const {
+      username,
+      lastname,
+      phoneNumber,
+      email,
+      transport,
+      workType,
+      city,
+      age,
+    } = user
+    const message = `שם מלא: ${username} ${lastname}
+  טלפון: ${phoneNumber}
+  גיל: ${age}
+  מייל: ${email}
+  עיר מגורים: ${city}
+  כלי תחבורה עיקרי: ${transport}
+  סוג עיסוק: ${workType}
+   `
+    let url = `https://web.whatsapp.com/send?phone=972542194560`
+    url += `&text=${encodeURI(message)}&app_absent=0`
+    window.open(url)
   }
 
   const fieldsData = {
@@ -34,8 +57,9 @@ export const JoinForm = () => {
       {
         inputName: 'email',
         placeHolder: 'דוא"ל *',
-        err: 'אימייל הוא שדה חובה',
-        pattern:"/^(([^<>()[\\]\\.,;:\\s@\\']+(\\.[^<>()[\\]\\.,;:\\s@\\']+)*)|(\\'.+\\'))@(([^<>()[\\]\\.,;:\\s@\\']+\\.)+[^<>()[\\]\\.,;:\\s@\\']{2,})$/i"
+        err: 'דוא"ל הוא שדה חובה',
+        pattern:
+          "/^(([^<>()[\\]\\.,;:\\s@\\']+(\\.[^<>()[\\]\\.,;:\\s@\\']+)*)|(\\'.+\\'))@(([^<>()[\\]\\.,;:\\s@\\']+\\.)+[^<>()[\\]\\.,;:\\s@\\']{2,})$/i",
       },
     ],
     location: [
@@ -43,7 +67,6 @@ export const JoinForm = () => {
         inputName: 'age',
         placeHolder: 'גיל *',
         err: 'גיל הוא שדה חובה',
-        validation: { min: 18, max: 99 },
       },
       {
         inputName: 'city',
@@ -76,7 +99,12 @@ export const JoinForm = () => {
 
         <div className='personal-info'>
           {fieldsData.personal.map((field) => (
-            <FieldPreview key={field.inputName} field={field} register={register} errors={errors} />
+            <FieldPreview
+              key={field.inputName}
+              field={field}
+              register={register}
+              errors={errors}
+            />
           ))}
         </div>
 
@@ -84,9 +112,13 @@ export const JoinForm = () => {
 
         <div className='location-info flex column'>
           {fieldsData.location.map((field) => (
-            <FieldPreview key={field.inputName} field={field} register={register} errors={errors} />
+            <FieldPreview
+              key={field.inputName}
+              field={field}
+              register={register}
+              errors={errors}
+            />
           ))}
-          
         </div>
 
         <input type='submit' />

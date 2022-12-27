@@ -1,4 +1,3 @@
-
 export const FieldPreview = ({
   field: { inputName, placeHolder, err, validation = {}, pattern = '' },
   register,
@@ -17,11 +16,31 @@ export const FieldPreview = ({
     }
   }
 
+  const getValidation = (inputName) => {
+    switch (inputName) {
+      case 'age':
+        return {
+          value: { min: 18, max: 99 },
+          message: 'גיל מינימאלי להצטרפות הוא 18',
+        }
+    }
+  }
   const getPattern = (inputName) => {
-    if (inputName === 'email') {
-      return /^(([^<>()[\]\.,;:\s@\']+(\.[^<>()[\]\.,;:\s@\']+)*)|(\'.+\'))@(([^<>()[\]\.,;:\s@\']+\.)+[^<>()[\]\.,;:\s@\']{2,})$/i
-    } else {
-      return
+    switch (inputName) {
+      case 'email':
+        return {
+          value:
+            /^(([^<>()[\]\.,;:\s@\']+(\.[^<>()[\]\.,;:\s@\']+)*)|(\'.+\'))@(([^<>()[\]\.,;:\s@\']+\.)+[^<>()[\]\.,;:\s@\']{2,})$/i,
+          message: 'נא הכנס דוא"ל תקין',
+        }
+      case 'username':
+      case 'lastname':
+        return { value: /^[A-Za-zא-ת]+$/i, message: 'נא הכנס שם רק באותיות' }
+      case 'phoneNumber':
+        return {
+          value: /^\+?(972|0)(\-)?0?(([23489]{1}\d{7})|[5]{1}\d{8})$/,
+          message: 'נא הכנס מספר טלפון תקין',
+        }
     }
   }
   return (
@@ -31,11 +50,11 @@ export const FieldPreview = ({
         placeholder={placeHolder}
         {...register(inputName, {
           required: err,
-          ...validation,
+          validation: getValidation(inputName),
           pattern: getPattern(inputName),
         })}
       />
-      {errors.username && (
+      {errors[inputName] && (
         <span className='form-error'>{errors[inputName].message}</span>
       )}
     </div>
