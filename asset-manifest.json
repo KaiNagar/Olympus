@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/Olympus/static/css/main.a1b02aa7.css",
-    "main.js": "/Olympus/static/js/main.7b89dbac.js",
+    "main.css": "/Olympus/static/css/main.53aa53e1.css",
+    "main.js": "/Olympus/static/js/main.c6bd12d5.js",
     "static/js/787.3a291bd3.chunk.js": "/Olympus/static/js/787.3a291bd3.chunk.js",
     "static/media/Olympus.png": "/Olympus/static/media/Olympus.bad0b61d4a31b54c7684.png",
     "index.html": "/Olympus/index.html",
-    "main.a1b02aa7.css.map": "/Olympus/static/css/main.a1b02aa7.css.map",
-    "main.7b89dbac.js.map": "/Olympus/static/js/main.7b89dbac.js.map",
+    "main.53aa53e1.css.map": "/Olympus/static/css/main.53aa53e1.css.map",
+    "main.c6bd12d5.js.map": "/Olympus/static/js/main.c6bd12d5.js.map",
     "787.3a291bd3.chunk.js.map": "/Olympus/static/js/787.3a291bd3.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.a1b02aa7.css",
-    "static/js/main.7b89dbac.js"
+    "static/css/main.53aa53e1.css",
+    "static/js/main.c6bd12d5.js"
   ]
 }
